@@ -1,7 +1,14 @@
 const express = require("express")
 const booksRoute = require("./routes/booksRoutes")
+const logger =require("./middlewares/books.logger")
 
 const app = express()
+
+
+//middleware
+app.use(express.json())
+app.use(logger)
+
 
 
 app.use(booksRoute)
